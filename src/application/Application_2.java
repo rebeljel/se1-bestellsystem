@@ -72,13 +72,9 @@ public class Application_2 {
 				dataFactory.createOrderItem( aTeller.getDescription(), aTeller, 4 )				// 4x Teller
 		);
 		
-		List<Order> orders = new ArrayList<Order>( List.of( o5234, o8592, o3563, o6135 ) );
-
-		orders.addAll(new ArrayList<Order>(List.of( o4352, o9283 )));
-	
-		
+		List<Order> orders = new ArrayList<Order>( List.of( o5234, o8592, o3563, o6135, o4352, o9283 ) );
 			
-		outputProcessor.printOrders( orders, false );
+		outputProcessor.printOrders( orders, true );
 		
 
 	}

@@ -14,9 +14,9 @@ final class OutputProcessor implements Components.OutputProcessor{
 	private final int printLineWidth = 100;
 	
 	private Components.InventoryManager inventoryManager;
-	private Object orderProcessor;
+	private Components.OrderProcessor orderProcessor;
 
-	public OutputProcessor(Components.InventoryManager inventoryManager, Object orderProcessor) {
+	public OutputProcessor(Components.InventoryManager inventoryManager, Components.OrderProcessor orderProcessor) {
 		this.inventoryManager = inventoryManager;
 		this.orderProcessor = orderProcessor;
 	}
@@ -38,7 +38,6 @@ final class OutputProcessor implements Components.OutputProcessor{
 				price += item.getArticle().getUnitPrice()*item.getUnitsOrdered();
 				fmtPrice = fmtPrice(price, "EUR", 14);
 			}
-
 			totalPrice += price;
 			itemSpecs = itemSpecs.substring(0, itemSpecs.lastIndexOf(", "));
 			
@@ -49,13 +48,25 @@ final class OutputProcessor implements Components.OutputProcessor{
 			sbAllOrders.append( "\n" );
 			sbAllOrders.append( sbLineItem );
 		}
+		
+		long vat = 0;
+		
+		if (printVAT == true) {
+			vat = orderProcessor.vat(totalPrice, 1);
+		}
+		else {
+			vat = 0;
+		}
 
 		String fmtPriceTotal = pad( fmtPrice( totalPrice, "", " EUR" ), 14, true );
+		String fmtVATTotal = pad( fmtPrice( vat, "", " EUR" ), 14, true );
 
 		sbAllOrders.append( "\n" )
 		.append( fmtLine( "-------------", "-------------", printLineWidth ) )
 		.append( "\n" )
-		.append( fmtLine( "Gesamtwert aller Bestellungen:", fmtPriceTotal, printLineWidth ) );
+		.append( fmtLine( "Gesamtwert aller Bestellungen:", fmtPriceTotal, printLineWidth ) )
+		.append( "\n")
+		.append( fmtLine( "Im Gesamtbetrag erhaltene Mehrwertsteuer (19%):", fmtVATTotal, printLineWidth ) );
 
 		System.out.println( sbAllOrders.toString() );
 		}
