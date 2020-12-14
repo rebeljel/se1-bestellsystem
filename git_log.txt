@@ -1,0 +1,23 @@
+commit 7111d0d744d6aa4c94cf46123dbf336c7847b24e
+Author: s83069@beuth-hochschule.de <s83069@beuth-hochschule.de>
+Date:   Thu Nov 12 17:01:12 2020 +0100
+
+    included vat methods
+
+commit bc6374c31f3687643105a43ecafc24b6845dbbde
+Author: s83069@beuth-hochschule.de <s83069@beuth-hochschule.de>
+Date:   Wed Nov 11 20:35:34 2020 +0100
+
+    initial commit .gitignore
+
+commit b05fced6657d263cefb425fd94ebc5700489c628
+Author: s83069@beuth-hochschule.de <s83069@beuth-hochschule.de>
+Date:   Wed Nov 11 20:31:50 2020 +0100
+
+    initial src commit
+
+commit fee7ad48439d9367257efc514d0eba129a392156
+Author: s83069@beuth-hochschule.de <s83069@beuth-hochschule.de>
+Date:   Wed Nov 11 20:30:14 2020 +0100
+
+    initial commit .gitignore
