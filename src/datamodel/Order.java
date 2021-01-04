@@ -17,11 +17,16 @@ public class Order {
 	protected Order(long id, Date date, Customer customer) {
 		items = new ArrayList<OrderItem>();
 		this.id = id;
-		this.date = date;
+		if (date == null) {
+			this.date = new Date();
+		}
+		else {
+			this.date = date;
+		}
 		this.customer = customer;
 	}
 	
-	public long getID() {
+	public long getId() {
 		return id;
 	}
 	
@@ -42,8 +47,9 @@ public class Order {
 	}
 	
 	public Order addItem(OrderItem item) {
-		
-		this.items.add(item);
+		if (!items.contains(item) && item != null) {
+			this.items.add(item);
+		}
 		return this;
 	}
 	
@@ -53,7 +59,7 @@ public class Order {
 		return this;
 	}
 	
-	public Order clearItem() {
+	public Order clearItems() {
 		
 		this.items.clear();
 		return this;

@@ -56,7 +56,7 @@ public class CustomerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		//System.out.println( this.getClass().getSimpleName() + ".setUp() called." );
+		System.out.println( this.getClass().getSimpleName() + ".setUp() called." );
 	}
 
 
@@ -154,7 +154,7 @@ public class CustomerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
-		//System.out.println( this.getClass().getSimpleName() + ".tearDown() called." );
+		System.out.println( this.getClass().getSimpleName() + ".tearDown() called." );
 	}
 
 	/**

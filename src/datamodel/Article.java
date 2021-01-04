@@ -7,10 +7,29 @@ public class Article {
 	private int unitsInStore;
 	
 	protected Article(String id, String description, long price, int units) {
-		this.description = description;
+		if (description == null) {
+			this.description = "";
+		}
+		else {
+			this.description = description;
+		}
+		
 		this.id = id;
-		this.unitPrice = price;
-		this.unitsInStore = units;
+		
+		if (price < 0) {
+			this.unitPrice = 0;
+		}
+		else {
+			this.unitPrice = price;
+		}
+
+		if (units < 0) {
+			this.unitsInStore = 0;
+		}
+		else {
+			this.unitsInStore = units;
+		}
+
 	}
 	
 	public String getId() {
@@ -22,7 +41,12 @@ public class Article {
 	}
 	
 	public void setDescription(String description) {
-		this.description = description;
+		if (description == null) {
+			this.description = "";
+		}
+		else {
+			this.description = description;
+		}
 	}
 	
 	public long getUnitPrice() {
@@ -30,7 +54,13 @@ public class Article {
 	}
 	
 	public void setUnitPrice(long price) {
-		this.unitPrice = price;
+		if (price == Long.MAX_VALUE || price < 0) {
+			this.unitPrice = 0;
+		}
+		else {
+			this.unitPrice = price;
+		}
+		
 	}
 	
 	public int getUnitsInStore() {
@@ -38,7 +68,12 @@ public class Article {
 	}
 	
 	public void setUnitsInStore(int number) {
-		this.unitsInStore = number;
+		if (number == Integer.MAX_VALUE || number < 0) {
+			this.unitsInStore = 0;
+		}
+		else {
+			this.unitsInStore = number;
+		}
 	}
 	
 }

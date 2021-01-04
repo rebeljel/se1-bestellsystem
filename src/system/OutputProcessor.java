@@ -44,7 +44,7 @@ final class OutputProcessor implements Components.OutputProcessor{
 			Customer customer = o.getCustomer();
 			String customerName = splitName(customer, singleName(customer) );
 			
-			sbLineItem = fmtLine( "#" + o.getID() + ", " + customerName + "'s Bestellung: " + itemSpecs, fmtPrice, printLineWidth);
+			sbLineItem = fmtLine( "#" + o.getId() + ", " + customerName + "'s Bestellung: " + itemSpecs, fmtPrice, printLineWidth);
 			sbAllOrders.append( "\n" );
 			sbAllOrders.append( sbLineItem );
 		}

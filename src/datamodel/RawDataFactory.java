@@ -71,6 +71,7 @@ final public class RawDataFactory {
 
 			@Override
 			public Order createOrder( long id, Date date, Customer customer ) {
+
 				return new Order( id, date, customer );
 			}
 
