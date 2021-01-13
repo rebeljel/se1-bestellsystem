@@ -17,6 +17,8 @@
 # ignore generated directories and compiled output
 bin
 target
+lib
+doc
 **/*.class
 **/*.jar
 
